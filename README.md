@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Projeto 7: Around The EU
 Around The EU é o sétimo projeto do curso de Desenvolvimento Web da TripleTen.
 Uma página web interativa que exibe uma galeria de fotos de lugares visitados pela Europa.
@@ -38,3 +39,6 @@ Baseado em layouts criados no Figma
 2. Link do projeto GH pages:
 
 https://franciele-m-aquino.github.io/web_project_homeland/
+=======
+# Tripleten web_project_around
+>>>>>>> 845cc7f8a4dd61eacd44c8da3587fece6ffb69d1
