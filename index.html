@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="sprint 7 Around the US" />
+    <meta name="author" content="Franciele Gonçalves de Medeiros Aquino" />
+    <meta name="keywords" content="around" />
+    <title>Around the US</title>
+    <link rel="stylesheet" type="text/css" href="pages/index.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1 class="header__title">
+          Arround
+          <span class="header__title-complement">The U.S.</span>
+        </h1>
+      </header>
+
+      <main class="content">
+        <section class="profile">
+          <img
+            src="images/profile.jpg"
+            alt="imagem de perfil"
+            class="profile__image"
+          />
+          <div class="profile__info-wrapper">
+            <div class="profile__info">
+              <div class="profile-text__icon">
+                <h2 class="profile__user">Jacques Cousteau</h2>
+                <a class="profile__edit-button"></a>
+              </div>
+              <p class="profile__bio">Explorador</p>
+            </div>
+          </div>
+
+          <button class="profile__add-button">
+            <i class="profile__add-icon"></i>
+          </button>
+        </section>
+
+        <section class="elements">
+          <ul class="elements__list">
+            <li class="card">
+              <img
+                src="images/Post1.jpg"
+                alt="Vale de Yosemite"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h3 class="card__title">Vale de Yosemite</h3>
+                <button class="card__like-button" type="button"></button>
+              </div>
+            </li>
+
+            <li class="card">
+              <img
+                src="images/Post2.jpg"
+                alt="Lago Louise"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h3 class="card__title">Lago Louise</h3>
+                <button class="card__like-button" type="button"></button>
+              </div>
+            </li>
+
+            <li class="card">
+              <img
+                src="images/Post3.jpg"
+                alt="imagem da Great Smoky Mountains"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h3 class="card__title">Great Smoky Mountains</h3>
+                <button class="card__like-button" type="button"></button>
+              </div>
+            </li>
+
+            <li class="card">
+              <img src="images/Post4.jpg" alt="Latemar" class="card__image" />
+              <div class="card__description">
+                <h3 class="card__title">Latemar</h3>
+                <button class="card__like-button" type="button"></button>
+              </div>
+            </li>
+
+            <li class="card">
+              <img
+                src="images/Post5.jpg"
+                alt="imagem do Parque Nacional Vanoise"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h3 class="card__title">Parque Nacional Vanoise</h3>
+                <button class="card__like-button" type="button"></button>
+              </div>
+            </li>
+
+            <li class="card">
+              <img
+                src="images/Post6.jpg"
+                alt="Lago di Braies"
+                class="card__image"
+              />
+              <div class="card__description">
+                <h3 class="card__title">Lago di Braies</h3>
+                <button class="card__like-button" type="button"></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <div class="modal" id="edit-profile-modal">
+        <div class="modal__container">
+          <button class="modal__close-button" type="button">&times;</button>
+          <h2 class="modal__title">Editar perfil</h2>
+          <form class="modal__form" id="profile-form">
+            <input
+              type="text"
+              class="modal__input modal__input-name"
+              id="profile-name"
+              name="name"
+              placeholder="Nome"
+              required
+            />
+
+            <input
+              type="text"
+              class="modal__input modal__input-description"
+              id="profile-description"
+              name="description"
+              placeholder="Sobre mim"
+              required
+            />
+
+            <button type="submit" class="modal__submit-button">Salvar</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p class="footer__copyright">© 2025 Around The U.S.</p>
+      </footer>
+    </div>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
