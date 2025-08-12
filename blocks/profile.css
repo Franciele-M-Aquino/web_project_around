@@ -24,7 +24,7 @@
   padding-top: 22px;
 }
 
-.profile-text__icon {
+.profile__text-icon {
   display: flex;
 }
 
@@ -129,7 +129,7 @@
     justify-content: center;
   }
 
-  .profile-text__icon {
+  .profile__text-icon {
     justify-content: center;
   }
 
