@@ -32,6 +32,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault(); //impedir que a página seja recarregada toda vez que submeter dados//
   profileUser.textContent = nameInput.value;
   profileBio.textContent = descriptionInput.value;
+  closeModal();
 }
 
 //Evento//
