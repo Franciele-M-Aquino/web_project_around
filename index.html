@@ -17,9 +17,7 @@
           Arround
           <span class="header__title-complement">The U.S.</span>
         </h1>
-      </header>
 
-      <main class="content">
         <section class="profile">
           <img
             src="images/profile.jpg"
@@ -30,7 +28,7 @@
             <div class="profile__info">
               <div class="profile__text-icon">
                 <h2 class="profile__user">Jacques Cousteau</h2>
-                <a class="profile__edit-button"></a>
+                <button class="profile__edit-button"></button>
               </div>
               <p class="profile__bio">Explorador</p>
             </div>
@@ -40,112 +38,108 @@
             <i class="profile__add-icon"></i>
           </button>
         </section>
+      </header>
 
+      <main class="content">
         <section class="elements">
-          <ul class="elements__list">
-            <li class="card">
-              <img
-                src="images/Post1.jpg"
-                alt="Vale de Yosemite"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h3 class="card__title">Vale de Yosemite</h3>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-
-            <li class="card">
-              <img
-                src="images/Post2.jpg"
-                alt="Lago Louise"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h3 class="card__title">Lago Louise</h3>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-
-            <li class="card">
-              <img
-                src="images/Post3.jpg"
-                alt="imagem da Great Smoky Mountains"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h3 class="card__title">Great Smoky Mountains</h3>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-
-            <li class="card">
-              <img src="images/Post4.jpg" alt="Latemar" class="card__image" />
-              <div class="card__description">
-                <h3 class="card__title">Latemar</h3>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-
-            <li class="card">
-              <img
-                src="images/Post5.jpg"
-                alt="imagem do Parque Nacional Vanoise"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h3 class="card__title">Parque Nacional Vanoise</h3>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-
-            <li class="card">
-              <img
-                src="images/Post6.jpg"
-                alt="Lago di Braies"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h3 class="card__title">Lago di Braies</h3>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="elements__list"></ul>
         </section>
       </main>
-
-      <div class="modal" id="edit-profile-modal">
-        <div class="modal__container">
-          <button class="modal__close-button" type="button">&times;</button>
-          <h2 class="modal__title">Editar perfil</h2>
-          <form class="modal__form" id="profile-form">
-            <input
-              type="text"
-              class="modal__input modal__input-name"
-              id="profile-name"
-              name="name"
-              placeholder="Nome"
-              required
-            />
-
-            <input
-              type="text"
-              class="modal__input modal__input-description"
-              id="profile-description"
-              name="description"
-              placeholder="Sobre mim"
-              required
-            />
-
-            <button type="submit" class="modal__submit-button">Salvar</button>
-          </form>
-        </div>
-      </div>
 
       <footer class="footer">
         <p class="footer__copyright">© 2025 Around The U.S.</p>
       </footer>
     </div>
+
+    <!-- Início dos pop-ups de editar perfil-->
+
+    <div class="modal" id="edit-profile-modal">
+      <div class="modal__container">
+        <button class="modal__close-button" type="button">&times;</button>
+        <h2 class="modal__title">Editar perfil</h2>
+        <form class="modal__form" id="profile-form">
+          <input
+            type="text"
+            class="modal__input modal__input-name"
+            id="profile-name"
+            name="name"
+            placeholder="Nome"
+            required
+          />
+
+          <input
+            type="text"
+            class="modal__input modal__input-description"
+            id="profile-description"
+            name="description"
+            placeholder="Sobre mim"
+            required
+          />
+
+          <button type="submit" class="modal__submit-button">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Início dos pop-ups de adicinar lugar-->
+
+    <div class="modal" id="add-place-modal">
+      <div class="modal__container">
+        <button class="modal__close-button" type="button">&times;</button>
+        <h2 class="modal__title">Novo local</h2>
+        <form class="modal__form" id="place-form">
+          <input
+            type="text"
+            class="modal__input modal__input-place"
+            id="new-place"
+            name="placeTitle"
+            placeholder="Título"
+            required
+          />
+
+          <input
+            type="text"
+            class="modal__input modal__input-link"
+            id="add-link"
+            name="imageLink"
+            placeholder="Link de imagem"
+            required
+          />
+
+          <button type="submit" class="modal__submit-button">Criar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="modalImage">
+      <div class="modal-image__content">
+        <button class="modal__close-button" type="button">&times;</button>
+        <img id="bigImageModal" src="" alt="" class="modal__image" />
+        <p id="imageTitle" class="modal-image__title"></p>
+      </div>
+    </div>
+
+    <!-- Template para vincular cards do JS ao htm-->
+
+    <template id="card-template">
+      <li class="card">
+        <img class="card__image" src="#" alt="" />
+        <button
+          aria-label="Delete card"
+          class="card__delete-button"
+          type="button"
+        ></button>
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button
+            aria-label="Like card"
+            class="card__like-button"
+            type="button"
+          ></button>
+        </div>
+      </li>
+    </template>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
