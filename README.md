@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-Projeto 7: Around The EU
-Around The EU é o sétimo projeto do curso de Desenvolvimento Web da TripleTen.
+Projeto 8: Around The EU
+Around The EU é o oitavo projeto do curso de Desenvolvimento Web da TripleTen.
 Uma página web interativa que exibe uma galeria de fotos de lugares visitados pela Europa.
 
-O utilizador pode curtir imagens e, futuramente, adicionar ou remover fotos da galeria.
+O utilizador pode curtir imagens, deletar e adicionar novas imagens. Usamos o projeto 7 como objeto de continuidade para essa etapa, adicionando essas novas funcionalidades e melhorando a estrutura em JavaScript do código.
 
 🚀 Tecnologias Utilizadas
 HTML
@@ -34,11 +33,8 @@ Baseado em layouts criados no Figma
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/Franciele-M-Aquino/web_project_homeland
+   git clone https://github.com/Franciele-M-Aquino/web_project_around
    ```
 2. Link do projeto GH pages:
 
-https://franciele-m-aquino.github.io/web_project_homeland/
-=======
-# Tripleten web_project_around
->>>>>>> 845cc7f8a4dd61eacd44c8da3587fece6ffb69d1
+# https://github.com/Franciele-M-Aquino/web_project_around

@@ -36,6 +36,8 @@
   font-size: 42px;
   line-height: 48px;
   color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__edit-button {
@@ -62,6 +64,8 @@
   font-size: 18px;
   line-height: 100%;
   display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .profile__add-button {

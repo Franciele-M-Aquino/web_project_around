@@ -85,7 +85,7 @@
   max-width: 100%;
 }
 
-.modal-image__content {
+.modal__image-content {
   max-width: 75vw;
   max-height: 75vh;
   width: auto;
@@ -98,7 +98,7 @@
   display: flex;
 }
 
-.modal-image__title {
+.modal__image-title {
   color: #ffffff;
   font-size: 12px;
   font: "Inter", sans-serif;

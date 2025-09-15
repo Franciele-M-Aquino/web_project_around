@@ -46,6 +46,8 @@ const addPlaceButton = document.querySelector(".profile__add-button");
 
 const newPlaceModal = document.getElementById("add-place-modal");
 
+const editProfileModal = document.getElementById("edit-profile-modal");
+
 const modalCloseButtons = document.querySelectorAll(".modal__close-button");
 
 const profileFormElement = document.querySelector(".modal__form");
