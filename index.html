@@ -65,7 +65,10 @@
             name="name"
             placeholder="Nome"
             required
+            minlength="2"
+            maxlength="40"
           />
+          <span id="name-error"></span>
 
           <input
             type="text"
@@ -74,9 +77,19 @@
             name="description"
             placeholder="Sobre mim"
             required
+            minlength="2"
+            maxlength="200"
           />
+          <span id="about-error"></span>
 
-          <button type="submit" class="modal__submit-button">Salvar</button>
+          <button
+            type="submit"
+            class="modal__submit-button"
+            id="saveButton"
+            disabled
+          >
+            Salvar
+          </button>
         </form>
       </div>
     </div>

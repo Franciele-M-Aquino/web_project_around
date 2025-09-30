@@ -1,5 +1,4 @@
-//cartões iniciais
-
+// ------------------ CARTÕES INICIAIS ------------------
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -27,61 +26,56 @@ const initialCards = [
   },
 ];
 
-//Template
-
+// ------------------ TEMPLATE ------------------
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
 
-//--Variável Passo 1--//
-
-//Wrappers
+// ------------------ WRAPPERS E SELECTORS ------------------
 const cardsWrap = document.querySelector(".elements__list");
 
-const modal = document.querySelector(".modal");
-
 const profileEditButton = document.querySelector(".profile__edit-button");
-
 const addPlaceButton = document.querySelector(".profile__add-button");
 
 const newPlaceModal = document.getElementById("add-place-modal");
-
 const editProfileModal = document.getElementById("edit-profile-modal");
 
 const modalCloseButtons = document.querySelectorAll(".modal__close-button");
 
-const profileFormElement = document.querySelector(".modal__form");
-
+//--------- SELEÇÃO DOS ELEMENTOS DO FORMULÁRIO DE EDIÇÃO DE PERFIL ---------------
+const profileFormElement = document.getElementById("profile-form");
 const nameInput = profileFormElement.querySelector(".modal__input-name");
-
 const descriptionInput = profileFormElement.querySelector(
   ".modal__input-description"
 );
+const nameError = document.getElementById("name-error");
+const aboutError = document.getElementById("about-error");
+const saveButton = document.getElementById("saveButton");
 
 const modalInputPlace = document.querySelector(".modal__input-place");
-
 const modalInputLink = document.querySelector(".modal__input-link");
 
-//Mudar nome do perfil
 const profileUser = document.querySelector(".profile__user");
-//Mudar nome da descrição
 const profileBio = document.querySelector(".profile__bio");
 
-//formulário novo lugar
 const cardSubmit = document.getElementById("place-form");
 
-//clones dos cards
-const getCardElement = (data) => {
+const imagePopup = document.getElementById("modalImage");
+const popupImage = document.getElementById("bigImageModal");
+const imageTitle = document.getElementById("imageTitle");
+
+// ------------------ FUNÇÕES DE CARTÃO ------------------
+function getCardElement(data) {
   const cardElement = cardTemplate.cloneNode(true);
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
-  //alterações que são feitas para cada cartão
+
   cardImage.src = data.link;
   cardImage.alt = data.name;
   cardTitle.textContent = data.name;
-  //ouvidores de eventos dos cards
+
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
@@ -90,62 +84,27 @@ const getCardElement = (data) => {
     cardElement.remove();
   });
 
-  //esse trecho deixa de ser necessário quando aplicado o enableImage
-
-  /*  cardImage.addEventListener("click", () => {
-    console.log("Preview imagem:", data.name);
-  });*/
-
   enableImagePopup(cardImage, data.name);
 
   return cardElement;
-};
+}
 
-//Função de renderização dos cards
-const renderCard = (data, wrap) => {
+function renderCard(data, wrap) {
   wrap.prepend(getCardElement(data));
-};
-//Renderizar os cards iniciais
-initialCards.forEach((data) => {
-  renderCard(data, cardsWrap);
-});
-
-//--Função passo 2--//
-function openModal(formModal) {
-  formModal.classList.add("modal_is-opened");
 }
 
-function closeModal(formModal) {
-  formModal.classList.remove("modal_is-opened");
+initialCards.forEach((data) => renderCard(data, cardsWrap));
+
+// ------------------ FUNÇÕES DE MODAL ------------------
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
 }
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault(); //impedir que a página seja recarregada toda vez que submeter dados//
-  profileUser.textContent = nameInput.value;
-  profileBio.textContent = descriptionInput.value;
-  profileFormElement.reset(); //limpa o formulário após submeter
-  closeModal(editProfileModal);
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
 }
 
-//função para adicionar a foto no feed
-function handleCardSubmit(evt) {
-  evt.preventDefault(); //impedir que a página seja recarregada toda vez que submeter dados//
-  renderCard(
-    { name: modalInputPlace.value, link: modalInputLink.value },
-    cardsWrap
-  );
-  cardSubmit.reset();
-  closeModal(newPlaceModal);
-}
-
-//função para habilitar o popup da imagem
-
-// Seletores do popup de imagem
-const imagePopup = document.getElementById("modalImage");
-const popupImage = document.getElementById("bigImageModal");
-const imageTitle = document.getElementById("imageTitle");
-
-// Função para habilitar popup ao clicar na imagem
+// ------------------ POPUP DE IMAGEM ------------------
 function enableImagePopup(image, title) {
   image.addEventListener("click", () => {
     popupImage.src = image.src;
@@ -155,10 +114,8 @@ function enableImagePopup(image, title) {
   });
 }
 
-//Evento--Passo 3--//
-
-profileEditButton.addEventListener("click", () => openModal(modal));
-
+// ------------------ EVENTOS DE ABRIR MODAL ------------------
+profileEditButton.addEventListener("click", () => openModal(editProfileModal));
 addPlaceButton.addEventListener("click", () => openModal(newPlaceModal));
 
 modalCloseButtons.forEach((button) => {
@@ -168,6 +125,57 @@ modalCloseButtons.forEach((button) => {
   });
 });
 
-profileFormElement.addEventListener("submit", handleProfileFormSubmit);
+// ------------------ VALIDAÇÃO DO FORMULÁRIO DE PERFIL ------------------
+// Checagem dos imputs
+function checkInput(input, errorElement) {
+  if (!input.validity.valid) {
+    errorElement.textContent = input.validationMessage;
+    errorElement.classList.add("modal__error");
+  } else {
+    errorElement.textContent = "";
+    errorElement.classList.remove("modal__error");
+  }
+}
 
-cardSubmit.addEventListener("submit", handleCardSubmit);
+// Ativação e desativação do botão de salvar
+function toggleSaveButton() {
+  if (profileFormElement.checkValidity()) {
+    saveButton.disabled = false;
+  } else {
+    saveButton.disabled = true;
+  }
+}
+// Ouvidores do form de edição
+[nameInput, descriptionInput].forEach((input) => {
+  const errorElement = input.id === "profile-name" ? nameError : aboutError;
+  input.addEventListener("input", () => {
+    checkInput(input, errorElement);
+    toggleSaveButton();
+  });
+});
+
+// Inicializa estado do botão como já estando desativado
+toggleSaveButton();
+
+// Submit do formulário de perfil - Após salvar o que deve ser executado
+profileFormElement.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  profileUser.textContent = nameInput.value;
+  profileBio.textContent = descriptionInput.value;
+  profileFormElement.reset();
+  nameError.textContent = "";
+  aboutError.textContent = "";
+  toggleSaveButton();
+  closeModal(editProfileModal);
+});
+
+// ------------------ FORMULÁRIO DE NOVO LOCAL ------------------
+cardSubmit.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  renderCard(
+    { name: modalInputPlace.value, link: modalInputLink.value },
+    cardsWrap
+  );
+  cardSubmit.reset();
+  closeModal(newPlaceModal);
+});
