@@ -1,8 +1,8 @@
-Projeto 8: Around The EU
-Around The EU é o oitavo projeto do curso de Desenvolvimento Web da TripleTen.
+Projeto 9: Around The EU
+Around The EU é o nono projeto do curso de Desenvolvimento Web da TripleTen.
 Uma página web interativa que exibe uma galeria de fotos de lugares visitados pela Europa.
 
-O utilizador pode curtir imagens, deletar e adicionar novas imagens. Usamos o projeto 7 como objeto de continuidade para essa etapa, adicionando essas novas funcionalidades e melhorando a estrutura em JavaScript do código.
+O utilizador pode curtir imagens, deletar e adicionar novas imagens. Usamos o projeto 7 e 8 como objeto de continuidade para essa etapa, adicionando essas novas funcionalidades e melhorando a estrutura em JavaScript do código.
 
 🚀 Tecnologias Utilizadas
 HTML
@@ -24,6 +24,8 @@ Abrir/fechar modal de edição de perfil
 Atualizar nome e descrição do perfil em tempo real
 
 Fechar modal com Esc ou clique fora da área
+
+Separação de códigos de validação
 
 Figma
 
