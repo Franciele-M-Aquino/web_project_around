@@ -1,7 +1,7 @@
 import Popup from "./Popup.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import { openModal, closeModal } from "./utils.js"; // ✅ exigência do projeto
+import { openModal, closeModal } from "./utils.js";
 
 // ------------------ CARTÕES INICIAIS ------------------
 const initialCards = [
@@ -83,7 +83,7 @@ function createCard(data) {
     popupImage.src = link;
     popupImage.alt = name;
     imageTitle.textContent = name;
-    imagePopupClass.open(); // ✅ usa classe Popup
+    imagePopupClass.open();
   });
 
   return card.generateCard();
@@ -100,7 +100,7 @@ profileFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   profileUser.textContent = nameInput.value;
   profileBio.textContent = descriptionInput.value;
-  editProfilePopup.close(); // ✅ fecha usando a classe Popup
+  editProfilePopup.close();
   profileFormElement.reset();
 });
 
@@ -108,7 +108,7 @@ placeFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const newCard = createCard({ name: placeInput.value, link: linkInput.value });
   cardsWrap.prepend(newCard);
-  newPlacePopup.close(); // ✅ fecha usando a classe Popup
+  newPlacePopup.close();
   placeFormElement.reset();
 });
 
