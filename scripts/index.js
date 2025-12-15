@@ -1,3 +1,4 @@
+import PopupWithForm from "./PopupWithForm.js";
 import PopupWithImage from "./PopupWithImage.js";
 import Popup from "./Popup.js";
 import Card from "./Card.js";
@@ -46,15 +47,6 @@ const editProfileModal = document.getElementById("edit-profile-modal");
 const newPlaceModal = document.getElementById("add-place-modal");
 
 // ------------------ FORMULÁRIOS ------------------
-const profileFormElement = document.getElementById("profile-form");
-const nameInput = profileFormElement.querySelector(".modal__input-name");
-const descriptionInput = profileFormElement.querySelector(
-  ".modal__input-description"
-);
-
-const placeFormElement = document.getElementById("place-form");
-const placeInput = placeFormElement.querySelector("#new-place");
-const linkInput = placeFormElement.querySelector("#add-link");
 
 const profileUser = document.querySelector(".profile__user");
 const profileBio = document.querySelector(".profile__bio");
@@ -111,7 +103,7 @@ cardSection.renderItems();
 
 // ------------------ SUBMITS ------------------
 //Isso acontece quando clica em Salvar dentro do formulário de perfil:
-profileFormElement.addEventListener("submit", (evt) => {
+/* profileFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault(); //impede o comportamento padrão do navegador (recarregar a página).
   profileUser.textContent = nameInput.value; //Pega o texto digitado nos inputs e Coloca no perfil da página
   profileBio.textContent = descriptionInput.value; //Pega o texto digitado nos inputs e Coloca no perfil da página
@@ -126,7 +118,7 @@ placeFormElement.addEventListener("submit", (evt) => {
   cardsWrap.prepend(newCard);
   newPlacePopup.close();
   placeFormElement.reset();
-});
+}); */
 
 // ------------------ HABILITAR VALIDAÇÃO ------------------
 //Define as regras (quais classes CSS usar, como mostrar erros etc.)
