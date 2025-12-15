@@ -3,7 +3,7 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this._handleCardClick = handleCardClick; // 👈 armazena o callback
+    this._handleCardClick = handleCardClick; // armazena o callback
   }
 
   _getTemplate() {
