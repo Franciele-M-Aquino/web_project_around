@@ -1,10 +1,12 @@
-Projeto 10: Around The EU
-Around The EU é o nono projeto do curso de Desenvolvimento Web da TripleTen.
-Uma página web interativa que exibe uma galeria de fotos de lugares visitados pela Europa.
+Projeto 11: Around The EU
 
-O utilizador pode curtir imagens, deletar e adicionar novas imagens. Usamos o projeto 7 como objeto e desde então temos aperfeiçoado o código, adicionando essas novas funcionalidades e melhorando a estrutura em JavaScript do código.
+Around The EU é um projeto do curso de Desenvolvimento Web da TripleTen.
+É uma página web interativa que exibe uma galeria de fotos de lugares visitados pela Europa, permitindo que o usuário interaja com as imagens e personalize seu perfil.
+
+A partir do projeto 7, o código foi aperfeiçoado para melhorar a estrutura em JavaScript, modularizando funcionalidades, implementando validação de formulários e criando classes para gerenciar dados e pop-ups.
 
 🚀 Tecnologias Utilizadas
+
 HTML
 
 CSS
@@ -17,30 +19,41 @@ JavaScript
 
 Manipulação do DOM
 
-Funcionalidades atuais:
+Estrutura modularizada usando classes
 
-Separação dos arquivos em JS
+Criação de instâncias de Card, Section, Popup, PopupWithForm, PopupWithImage e UserInfo
 
-Validador
+Validação de formulários com feedback em tempo real
 
-Abrir/fechar modal de edição de perfil
-
-Atualizar nome e descrição do perfil em tempo real
-
-Fechar modal com Esc ou clique fora da área
-
-Separação de códigos de validação
+Pop-ups interativos (abrir/fechar com clique, Esc ou clique fora da área)
 
 Figma
 
-Baseado em layouts criados no Figma
+Layouts baseados em designs criados no Figma
 
-## Como Usar
+Funcionalidades
 
-1. Clone este repositório:
-   ```bash
-   git clone https://github.com/Franciele-M-Aquino/web_project_around
-   ```
-2. Link do projeto GH pages:
+Separação do código JavaScript em módulos (index.js, Card.js, FormValidator.js, Popup.js, Section.js, UserInfo.js, utils.js)
 
-# https://github.com/Franciele-M-Aquino/web_project_around
+Criação e renderização dinâmica de cards com imagens
+
+Curtir e deletar imagens
+
+Adicionar novas imagens através de formulário validado
+
+Edição de perfil com atualização em tempo real do nome e descrição
+
+Gerenciamento de pop-ups com classes específicas e métodos reutilizáveis
+
+Validação de formulários com mensagens de erro e bloqueio de botão até os campos estarem corretos
+
+Fechar pop-ups via Esc ou clique fora da área
+
+Como Usar
+
+Clone este repositório:
+
+git clone https://github.com/Franciele-M-Aquino/web_project_around
+
+Abra o arquivo index.html no seu navegador ou acesse via GitHub Pages:
+https://franciele-m-aquino.github.io/web_project_around
