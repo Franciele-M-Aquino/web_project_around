@@ -11,8 +11,10 @@
 .profile__image {
   object-fit: cover;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
 }
 
 .profile__info-wrapper {
@@ -89,6 +91,45 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.profile__image-container {
+  position: relative;
+  width: 120px; /* Use o tamanho real do seu projeto */
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  /*display: block;
+  pointer-events: auto;*/
+}
+
+.profile__avatar-edit-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+  background-image: url("../images/edit-icon.svg"); /* O caminho do seu ícone de lápis */
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.profile__image-container:hover .profile__avatar-edit-button {
+  opacity: 1 !important; /* Aparece quando passa o mouse */
+  visibility: visible !important;
 }
 
 @media screen and (max-width: 1135px) {

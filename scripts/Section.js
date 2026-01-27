@@ -1,19 +1,18 @@
 export default class Section {
-  constructor({ items, renderer }, containerSelector) {
-    this._items = items; // array de dados (ex: initialCards)
-    this._renderer = renderer; // função que cria e renderiza cada item
-    this._container = document.querySelector(containerSelector); // onde os itens entram
+  // Remova o 'items' do construtor se quiser, ou deixe como opcional
+  constructor({ renderer }, containerSelector) {
+    this._renderer = renderer;
+    this._container = document.querySelector(containerSelector);
   }
 
-  // Renderiza todos os itens iniciais
-  renderItems() {
-    this._items.forEach((item) => {
+  // Agora o renderItems recebe o array 'items' como argumento!
+  renderItems(items) {
+    items.forEach((item) => {
       this._renderer(item);
     });
   }
 
-  // Adiciona um item DOM ao contêiner
   addItem(element) {
-    this._container.prepend(element);
+    this._container.append(element); // Use .append para manter a ordem do servidor
   }
 }

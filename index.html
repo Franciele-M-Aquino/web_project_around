@@ -1,11 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="sprint 7 Around the US" />
-    <meta name="author" content="Franciele Gonçalves de Medeiros Aquino" />
-    <meta name="keywords" content="around" />
     <title>Around the US</title>
     <link rel="stylesheet" type="text/css" href="pages/index.css" />
     <link rel="icon" href="favicon.ico" />
@@ -14,27 +11,30 @@
     <div class="page">
       <header class="header">
         <h1 class="header__title">
-          Around
-          <span class="header__title-complement">The U.S.</span>
+          Around <span class="header__title-complement">The U.S.</span>
         </h1>
 
         <section class="profile">
-          <img
-            src="images/profile.jpg"
-            alt="imagem de perfil"
-            class="profile__image"
-          />
+          <div class="profile__image-container">
+            <img
+              src="images/profile.jpg"
+              alt="imagem de perfil"
+              class="profile__image"
+            />
+            <button class="profile__avatar-edit-button" type="button"></button>
+          </div>
+
           <div class="profile__info-wrapper">
             <div class="profile__info">
               <div class="profile__text-icon">
                 <h2 class="profile__user">Jacques Cousteau</h2>
-                <button class="profile__edit-button"></button>
+                <button class="profile__edit-button" type="button"></button>
               </div>
               <p class="profile__bio">Explorador</p>
             </div>
           </div>
 
-          <button class="profile__add-button">
+          <button class="profile__add-button" type="button">
             <i class="profile__add-icon"></i>
           </button>
         </section>
@@ -51,54 +51,38 @@
       </footer>
     </div>
 
-    <!-- Início dos pop-ups de editar perfil-->
-
     <div class="modal" id="edit-profile-modal">
       <div class="modal__container">
         <button class="modal__close-button" type="button">&times;</button>
         <h2 class="modal__title">Editar perfil</h2>
         <form class="modal__form" id="profile-form">
           <input
+            id="profile-name"
             type="text"
             class="modal__input modal__input-name"
-            id="profile-name"
             name="name"
             placeholder="Nome"
             required
             minlength="2"
             maxlength="40"
           />
-          <span
-            class="modal__error"
-            id="profile-name-error"
-            aria-live="polite"
-          ></span>
+          <span class="modal__error" id="profile-name-error"></span>
 
           <input
+            id="profile-about"
             type="text"
             class="modal__input modal__input-description"
-            id="profile-description"
             name="description"
             placeholder="Sobre mim"
             required
             minlength="2"
             maxlength="200"
           />
-          <span class="modal__error" id="about-error" aria-live="polite"></span>
-
-          <button
-            type="submit"
-            class="modal__submit-button"
-            id="saveButton"
-            disabled
-          >
-            Salvar
-          </button>
+          <span class="modal__error" id="profile-about-error"></span>
+          <button type="submit" class="modal__submit-button">Salvar</button>
         </form>
       </div>
     </div>
-
-    <!-- Início dos pop-ups de adicinar lugar-->
 
     <div class="modal" id="add-place-modal">
       <div class="modal__container">
@@ -106,39 +90,27 @@
         <h2 class="modal__title">Novo local</h2>
         <form class="modal__form" id="place-form">
           <input
+            id="place-title"
             type="text"
-            class="modal__input modal__input-place"
-            id="new-place"
+            class="modal__input"
             name="placeTitle"
             placeholder="Título"
             required
             minlength="2"
             maxlength="30"
           />
-          <span
-            id="new-place-error"
-            class="modal__error"
-            aria-live="polite"
-          ></span>
+          <span class="modal__error" id="place-title-error"></span>
 
           <input
+            id="place-link"
             type="url"
-            class="modal__input modal__input-link"
-            id="add-link"
+            class="modal__input"
             name="imageLink"
             placeholder="Link de imagem"
             required
           />
-          <span id="add-link-error" class="modal__error"></span>
-
-          <button
-            type="submit"
-            class="modal__submit-button"
-            id="createButton"
-            disabled
-          >
-            Criar
-          </button>
+          <span class="modal__error" id="place-link-error"></span>
+          <button type="submit" class="modal__submit-button">Criar</button>
         </form>
       </div>
     </div>
@@ -146,28 +118,47 @@
     <div class="modal" id="modalImage">
       <div class="modal__image-content">
         <button class="modal__close-button" type="button">&times;</button>
-        <img id="bigImageModal" src="" alt="" class="modal__image" />
+        <img id="bigImageModal" src="#" alt="" class="modal__image" />
         <p id="imageTitle" class="modal__image-title"></p>
       </div>
     </div>
 
-    <!-- Template para vincular cards do JS ao htm-->
+    <div class="modal" id="delete-confirm-modal">
+      <div class="modal__container">
+        <button class="modal__close-button" type="button">&times;</button>
+        <h2 class="modal__title">Tem certeza?</h2>
+        <form class="modal__form" id="delete-form">
+          <button type="submit" class="modal__submit-button">Sim</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button class="modal__close-button" type="button">&times;</button>
+        <h2 class="modal__title">Alterar a foto do perfil</h2>
+        <form class="modal__form" id="avatar-form">
+          <input
+            id="avatar-link"
+            type="url"
+            name="avatarLink"
+            class="modal__input"
+            placeholder="Link da imagem"
+            required
+          />
+          <span class="modal__error" id="avatar-link-error"></span>
+          <button type="submit" class="modal__submit-button">Salvar</button>
+        </form>
+      </div>
+    </div>
 
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="#" alt="" />
-        <button
-          aria-label="Delete card"
-          class="card__delete-button"
-          type="button"
-        ></button>
+        <button class="card__delete-button" type="button"></button>
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button
-            aria-label="Like card"
-            class="card__like-button"
-            type="button"
-          ></button>
+          <button class="card__like-button" type="button"></button>
         </div>
       </li>
     </template>

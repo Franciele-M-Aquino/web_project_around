@@ -3,31 +3,37 @@ export default class FormValidator {
     this._settings = settings;
     this._formElement = formElement;
     this._inputList = Array.from(
-      this._formElement.querySelectorAll(this._settings.inputSelector)
+      this._formElement.querySelectorAll(this._settings.inputSelector),
     );
     this._buttonElement = this._formElement.querySelector(
-      this._settings.submitButtonSelector
+      this._settings.submitButtonSelector,
     );
   }
 
   // --- Mostrar erro ---
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`
+      `#${inputElement.id}-error`,
     );
-    inputElement.classList.add(this._settings.inputErrorClass);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(this._settings.errorClass);
+
+    if (errorElement) {
+      inputElement.classList.add(this._settings.inputErrorClass);
+      errorElement.textContent = errorMessage;
+      errorElement.classList.add(this._settings.errorClass);
+    }
   }
 
   // --- Esconder erro ---
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`
+      `#${inputElement.id}-error`,
     );
-    inputElement.classList.remove(this._settings.inputErrorClass);
-    errorElement.textContent = "";
-    errorElement.classList.remove(this._settings.errorClass);
+
+    if (errorElement) {
+      inputElement.classList.remove(this._settings.inputErrorClass);
+      errorElement.textContent = "";
+      errorElement.classList.remove(this._settings.errorClass);
+    }
   }
 
   // --- Checar validade de cada input ---
@@ -46,6 +52,8 @@ export default class FormValidator {
 
   // --- Alterar estado do botão ---
   _toggleButtonState() {
+    if (!this._buttonElement) return;
+
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._settings.inactiveButtonClass);
       this._buttonElement.disabled = true;
@@ -70,5 +78,14 @@ export default class FormValidator {
   // --- Método público que ativa a validação ---
   enableValidation() {
     this._setEventListeners();
+  }
+
+  // --- Método público para resetar validação ---
+  resetValidation() {
+    this._toggleButtonState();
+
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
   }
 }

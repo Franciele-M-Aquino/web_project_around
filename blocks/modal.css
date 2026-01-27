@@ -10,12 +10,16 @@
   align-items: center;
   visibility: visible;
   opacity: 1;
-  transition: visibility 0s 0.3s, opacity 0.3s;
+  transition:
+    visibility 0s 0.3s,
+    opacity 0.3s;
   z-index: 999;
 }
 
 .modal_is-opened {
-  display: flex;
+  display: flex !important;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
