@@ -165,7 +165,6 @@ avatarValidation.enableValidation();
 // --- INICIALIZAÇÃO ---
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, initialCards]) => {
-    console.log("Meus cards vindos da API:", initialCards); //teste dedo duro - retirar depois
     userId = userData._id;
     userInfo.setUserInfo({
       name: userData.name,

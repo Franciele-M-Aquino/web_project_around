@@ -1,5 +1,4 @@
 export default class Card {
-  // Agora recebemos funções de callback para lidar com Likes e Deletar
   constructor(
     data,
     templateSelector,
@@ -10,10 +9,10 @@ export default class Card {
   ) {
     this._name = data.name;
     this._link = data.link;
-    this._id = data._id; // ID único do cartão vindo do servidor
-    this._ownerId = data.owner._id || data.owner; // ID de quem criou o cartão
-    this._isLiked = data.isLiked; // Estado inicial da curtida
-    this._userId = userId; // Seu ID de usuário para comparação
+    this._id = data._id;
+    this._ownerId = data.owner._id || data.owner;
+    this._isLiked = data.isLiked;
+    this._userId = userId;
 
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
@@ -55,7 +54,7 @@ export default class Card {
     this._image.alt = this._name;
     this._title.textContent = this._name;
 
-    // Se o cartão não for seu, removemos o ícone da lixeira
+    // Se o cartão não for seu, o ícone de lixeira não aparece
     if (this._ownerId !== this._userId) {
       this._deleteButton.remove();
     }
@@ -69,7 +68,6 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener("click", () => {
-      // Aqui chamamos a função que veio do index.js via construtor
       this._handleLikeClick(this._id, this._isLiked);
     });
 

@@ -1,59 +1,48 @@
-Projeto 11: Around The EU
+Projeto 12: Around The US (API Integration)
 
-Around The EU é um projeto do curso de Desenvolvimento Web da TripleTen.
-É uma página web interativa que exibe uma galeria de fotos de lugares visitados pela Europa, permitindo que o usuário interaja com as imagens e personalize seu perfil.
+O Around The US é uma página web interativa e responsiva desenvolvida durante o curso de Desenvolvimento Web da TripleTen. Nesta etapa final, o projeto deixou de ser apenas visual para se tornar uma aplicação dinâmica conectada a um servidor real.
 
-A partir do projeto 7, o código foi aperfeiçoado para melhorar a estrutura em JavaScript, modularizando funcionalidades, implementando validação de formulários e criando classes para gerenciar dados e pop-ups.
+A partir deste projeto, implementamos o consumo de uma API REST, permitindo que as alterações (como fotos, curtidas e informações de perfil) sejam salvas permanentemente no servidor.
 
-🚀 Tecnologias Utilizadas
+🚀 Tecnologias e Conceitos Implementados
 
-HTML
+JavaScript Assíncrono: Uso de fetch, Promises e Promise.all para gerenciar requisições ao servidor.
 
-CSS
+Programação Orientada a Objetos (POO): Organização total do código em classes modulares (Api, Card, Section, UserInfo, Popup).
 
-@font-face para fontes personalizadas
+Integração com API REST: Implementação de métodos GET, POST, PATCH, PUT e DELETE.
 
-Layouts responsivos
+UX/UI Avançada: Feedbacks visuais de carregamento ("Salvando...") e modais de confirmação para ações destrutivas (deleção).
 
-JavaScript
+Validação de Formulários: Garantia de integridade dos dados inseridos pelo usuário com feedback em tempo real.
 
-Manipulação do DOM
+✨ Novas Funcionalidades (Sprint 12)
 
-Estrutura modularizada usando classes
+Sincronização com Servidor: As informações do usuário e os cards são carregados dinamicamente do servidor ao iniciar a página.
 
-Criação de instâncias de Card, Section, Popup, PopupWithForm, PopupWithImage e UserInfo
+Edição de Avatar: Possibilidade de alterar a foto de perfil com atualização via API (PATCH).
 
-Validação de formulários com feedback em tempo real
+Sistema de Curtidas Real: O número de curtidas e o estado do ícone de "coração" são gerenciados pelo servidor.
 
-Pop-ups interativos (abrir/fechar com clique, Esc ou clique fora da área)
+Deleção com Confirmação: Implementação de um popup de confirmação antes de remover definitivamente um card do servidor.
 
-Figma
+Controle de Propriedade: O botão de deletar aparece exclusivamente nos cards criados pelo usuário logado.
 
-Layouts baseados em designs criados no Figma
+🛠️ Como o Código foi Estruturado
 
-Funcionalidades
+Api.js: Gerencia todas as requisições de rede.
 
-Separação do código JavaScript em módulos (index.js, Card.js, FormValidator.js, Popup.js, Section.js, UserInfo.js, utils.js)
+Card.js: Lógica de criação de cards, incluindo tratamento de likes e lógica de permissão de deleção.
 
-Criação e renderização dinâmica de cards com imagens
+UserInfo.js: Gerencia a exibição das informações do usuário na tela, incluindo o avatar.
 
-Curtir e deletar imagens
+PopupWithConfirmation.js: Classe específica para lidar com ações que exigem confirmação do usuário antes de executar uma chamada de API.
 
-Adicionar novas imagens através de formulário validado
-
-Edição de perfil com atualização em tempo real do nome e descrição
-
-Gerenciamento de pop-ups com classes específicas e métodos reutilizáveis
-
-Validação de formulários com mensagens de erro e bloqueio de botão até os campos estarem corretos
-
-Fechar pop-ups via Esc ou clique fora da área
-
-Como Usar
-
+💻 Como Usar
 Clone este repositório:
+
+Bash
 
 git clone https://github.com/Franciele-M-Aquino/web_project_around
 
-Abra o arquivo index.html no seu navegador ou acesse via GitHub Pages:
-https://franciele-m-aquino.github.io/web_project_around
+Abra o arquivo index.html no seu navegador ou acesse o link do GitHub Pages para ver o projeto em execução.

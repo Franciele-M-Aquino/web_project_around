@@ -7,7 +7,7 @@ export default class PopupWithConfirmation extends Popup {
     this._submitButton = this._popup.querySelector(".modal__submit-button");
   }
 
-  // Este método permite definir qual função será executada ao confirmar
+  // Método para qual função será executada ao confirmar
   setSubmitAction(action) {
     this._handleFormSubmit = action;
   }

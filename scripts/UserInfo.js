@@ -2,7 +2,7 @@ export default class UserInfo {
   constructor({ nameSelector, jobSelector, avatarSelector }) {
     this._nameElement = document.querySelector(nameSelector);
     this._jobElement = document.querySelector(jobSelector);
-    this._avatarElement = document.querySelector(avatarSelector); // Pode ser null se não existir
+    this._avatarElement = document.querySelector(avatarSelector);
   }
 
   getUserInfo() {
@@ -15,7 +15,6 @@ export default class UserInfo {
   setUserInfo({ name, job, avatar }) {
     if (this._nameElement && name) this._nameElement.textContent = name;
 
-    // CORREÇÃO AQUI: Use 'job' em vez de 'userData.job'
     if (this._jobElement && job) this._jobElement.textContent = job;
 
     if (this._avatarElement && avatar) {

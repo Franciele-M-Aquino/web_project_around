@@ -84,4 +84,4 @@ export default class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
-} // A ÚLTIMA CHAVE DEVE FICAR AQUI, FECHANDO TUDO.
+}
